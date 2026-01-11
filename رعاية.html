@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة العناية بالأطفال وكبار السن - للعاملة المنزلية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c7873;
+            --secondary-color: #6fb3b8;
+            --accent-color: #ff9a3c;
+            --light-color: #f7f9f9;
+            --dark-color: #2a3d45;
+            --child-care-color: #6a89cc;
+            --elderly-care-color: #78e08f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--child-care-color), var(--elderly-care-color));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2.2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .child-card .card-header {
+            background-color: var(--child-care-color);
+        }
+        
+        .elderly-card .card-header {
+            background-color: var(--elderly-care-color);
+        }
+        
+        .card-header {
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        th {
+            background-color: #f2f6f8;
+            color: var(--dark-color);
+            font-weight: 600;
+            text-align: right;
+            padding: 12px 15px;
+            border-bottom: 2px solid #e1e5e9;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e1e5e9;
+            vertical-align: top;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* Checklist */
+        .checklist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-item label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-left: 10px;
+            transform: scale(1.3);
+        }
+        
+        .stars {
+            color: #ffc107;
+            white-space: nowrap;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .stats-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .child-stats-card h3 {
+            color: var(--child-care-color);
+        }
+        
+        .elderly-stats-card h3 {
+            color: var(--elderly-care-color);
+        }
+        
+        .stats-card h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+        
+        .child-progress {
+            background-color: var(--child-care-color);
+        }
+        
+        .elderly-progress {
+            background-color: var(--elderly-care-color);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .child-btn {
+            background-color: var(--child-care-color);
+        }
+        
+        .child-btn:hover {
+            background-color: #5568b8;
+        }
+        
+        .elderly-btn {
+            background-color: var(--elderly-care-color);
+        }
+        
+        .elderly-btn:hover {
+            background-color: #5cd67c;
+        }
+        
+        .btn-print {
+            background-color: var(--accent-color);
+            margin-top: 10px;
+        }
+        
+        .btn-print:hover {
+            background-color: #e6892a;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-right: 4px solid var(--secondary-color);
+        }
+        
+        .child-instructions {
+            border-right-color: var(--child-care-color);
+        }
+        
+        .elderly-instructions {
+            border-right-color: var(--elderly-care-color);
+        }
+        
+        .instructions h4 {
+            margin-bottom: 10px;
+        }
+        
+        .child-instructions h4 {
+            color: var(--child-care-color);
+        }
+        
+        .elderly-instructions h4 {
+            color: var(--elderly-care-color);
+        }
+        
+        .instructions ul {
+            padding-right: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background-color: #f1f1f1;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            min-width: 120px;
+        }
+        
+        .child-tab.active {
+            background-color: white;
+            color: var(--child-care-color);
+        }
+        
+        .elderly-tab.active {
+            background-color: white;
+            color: var(--elderly-care-color);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Icons and Stars Styling */
+        .icon-cell {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .stars-cell {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .example-cell {
+            background-color: #f9f9f9;
+            font-size: 0.9rem;
+        }
+        
+        /* Print styles */
+        @media print {
+            header, .sidebar, .btn-print, footer {
+                display: none;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* Care Specific Styles */
+        .care-badge {
+            display: inline-block;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .child-badge {
+            background-color: var(--child-care-color);
+        }
+        
+        .elderly-badge {
+            background-color: var(--elderly-care-color);
+        }
+        
+        .importance-level {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .high-importance {
+            color: #d9534f;
+        }
+        
+        .medium-importance {
+            color: #f0ad4e;
+        }
+        
+        .low-importance {
+            color: #5cb85c;
+        }
+        
+        .section-highlight {
+            padding-right: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            padding: 15px;
+        }
+        
+        .child-highlight {
+            border-right: 5px solid var(--child-care-color);
+            background-color: #f0f5ff;
+        }
+        
+        .elderly-highlight {
+            border-right: 5px solid var(--elderly-care-color);
+            background-color: #f0fff5;
+        }
+        
+        .care-tip {
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .child-tip {
+            background-color: #e8f0fe;
+            border-right: 4px solid var(--child-care-color);
+        }
+        
+        .elderly-tip {
+            background-color: #e8fef0;
+            border-right: 4px solid var(--elderly-care-color);
+        }
+        
+        .tip-icon {
+            margin-left: 8px;
+        }
+        
+        .child-tip-icon {
+            color: var(--child-care-color);
+        }
+        
+        .elderly-tip-icon {
+            color: var(--elderly-care-color);
+        }
+        
+        /* Timeline for schedules */
+        .timeline {
+            position: relative;
+            padding-right: 30px;
+            margin-top: 20px;
+        }
+        
+        .child-timeline .timeline-item::before {
+            background-color: var(--child-care-color);
+        }
+        
+        .elderly-timeline .timeline-item::before {
+            background-color: var(--elderly-care-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            right: -25px;
+            top: 11px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: #ddd;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .timeline-time {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .child-timeline .timeline-time {
+            color: var(--child-care-color);
+        }
+        
+        .elderly-timeline .timeline-time {
+            color: var(--elderly-care-color);
+        }
+        
+        /* Tooltip for stars */
+        .stars[title] {
+            position: relative;
+            cursor: help;
+        }
+        
+        .stars[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        
+        /* Safety Icons Grid */
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .safety-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .safety-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* Activity Cards */
+        .activity-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .activity-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+        }
+        
+        .child-activity .activity-header {
+            background-color: var(--child-care-color);
+        }
+        
+        .elderly-activity .activity-header {
+            background-color: var(--elderly-care-color);
+        }
+        
+        .activity-header {
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .activity-body {
+            padding: 15px;
+        }
+        
+        .activity-body ul {
+            padding-right: 20px;
+        }
+        
+        .activity-body li {
+            margin-bottom: 5px;
+        }
+        
+        /* Emergency Section */
+        .emergency-section {
+            background-color: #fff3cd;
+            border-right: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .emergency-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .emergency-list {
+            padding-right: 20px;
+        }
+        
+        .emergency-list li {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    <h1>منصة العناية بالأطفال وكبار السن</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#child-care">العناية بالأطفال</a></li>
+                    <li><a href="#elderly-care">العناية بكبار السن</a></li>
+                    <li><a href="#child-schedule">جدول الأطفال</a></li>
+                    <li><a href="#elderly-schedule">جدول كبار السن</a></li>
+                    <li><a href="#safety">السلامة</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Main Content -->
+            <div class="content">
+                <!-- Child Care Introduction -->
+                <div class="card child-card" id="child-care">
+                    <div class="card-header">
+                        <h2><i class="fas fa-child"></i> القواعد داخل المنزل للأطفال - خطوات عملية</h2>
+                        <span class="care-badge child-badge">نظافة ومراقبة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="section-highlight child-highlight">
+                            <h3><i class="fas fa-baby"></i> النظافة الشخصية للأطفال</h3>
+                            <p>الخطوات العملية للحفاظ على نظافة الأطفال وصحتهم داخل المنزل</p>
+                        </div>
+                        
+                        <div class="tabs">
+                            <div class="tab child-tab active" data-tab="child-hygiene">النظافة الشخصية</div>
+                            <div class="tab child-tab" data-tab="child-monitoring">المراقبة واللعب</div>
+                            <div class="tab child-tab" data-tab="child-positive">الأساليب الإيجابية</div>
+                            <div class="tab child-tab" data-tab="child-environment">تنظيم البيئة</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="child-hygiene">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>غسل اليدين</strong></td>
+                                        <td>غسل اليدين بالصابون لمدة 20 ثانية</td>
+                                        <td class="example-cell">ساعد الطفل على غسل يديه بالصابون لمدة 20 ثانية قبل تناول الفطور</td>
+                                        <td class="icon-cell">🧴🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تنظيف الوجه والأسنان</strong></td>
+                                        <td>تنظيف الأسنان مرتين يوميًا وغسل الوجه</td>
+                                        <td class="example-cell">بعد الإفطار، قم بتعليم الطفل غسل الأسنان باستخدام فرشاة صغيرة ومعجون مخصص للأطفال</td>
+                                        <td class="icon-cell">🪥🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تغيير الملابس والحفاظات</strong></td>
+                                        <td>تغيير الحفاظات كل 2-3 ساعات وارتداء ملابس نظيفة</td>
+                                        <td class="example-cell">تغيير الحفاظات كل 2-3 ساعات أو عند الحاجة، وارتداء ملابس نظيفة</td>
+                                        <td class="icon-cell">👕🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="care-tip child-tip">
+                                <i class="fas fa-lightbulb tip-icon child-tip-icon"></i>
+                                <strong>نصيحة عملية:</strong> اجعل نظافة اليدين لعبة للطفل عن طريق غناء أغنية لمدة 20 ثانية أثناء الغسيل.
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="child-monitoring">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>المراقبة الدائمة</strong></td>
+                                        <td>البقاء قريبًا من الطفل أثناء اللعب</td>
+                                        <td class="example-cell">ابقِ قريبًا أثناء اللعب، وراقب الأطفال في الحديقة الداخلية أو الساحة</td>
+                                        <td class="icon-cell">👀🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>المشاركة في اللعب</strong></td>
+                                        <td>اللعب مع الأطفال بأنشطة تعليمية وترفيهية</td>
+                                        <td class="example-cell">اللعب بالدمى أو البازل، تعليم الألوان والأشكال بطريقة ممتعة</td>
+                                        <td class="icon-cell">🎲🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="activity-cards">
+                                <div class="activity-card child-activity">
+                                    <div class="activity-header">
+                                        <span>أنشطة تعليمية</span>
+                                        <span>📚</span>
+                                    </div>
+                                    <div class="activity-body">
+                                        <ul>
+                                            <li>تعليم الألوان باستخدام ألعاب التركيب</li>
+                                            <li>تعليم الأرقام والحروف عن طريق الأغاني</li>
+                                            <li>قراءة القصص المصورة</li>
+                                            <li>ألعاب الذاكرة البسيطة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card child-activity">
+                                    <div class="activity-header">
+                                        <span>أنشطة ترفيهية</span>
+                                        <span>🎨</span>
+                                    </div>
+                                    <div class="activity-body">
+                                        <ul>
+                                            <li>الرسم والتلوين</li>
+                                            <li>اللعب بالصلصال الآمن</li>
+                                            <li>بناء المكعبات</li>
+                                            <li>ألعاب التمثيل والدور</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="child-positive">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-heart"></i> منع العنف واستخدام الأساليب الإيجابية</h3>
+                                <p>توجيه الأطفال بطريقة إيجابية تعزز سلوكهم الجيد</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>استخدام أسلوب إيجابي</strong></td>
+                                        <td>التحدث بهدوء وتقديم بدائل عند الخطأ</td>
+                                        <td class="example-cell">عندما يسقط الطفل لعبة، قل: "لنحاول وضعها في الصندوق بهدوء" بدلاً من الصراخ</td>
+                                        <td class="icon-cell">🗣️🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تشجيع السلوك الجيد</strong></td>
+                                        <td>المكافآت والابتسامة لتعزيز التصرفات الإيجابية</td>
+                                        <td class="example-cell">مدح الطفل عند ترتيب ألعابه: "عمل ممتاز!"</td>
+                                        <td class="icon-cell">🙂🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="care-tip child-tip">
+                                <i class="fas fa-hand-holding-heart tip-icon child-tip-icon"></i>
+                                <strong>قاعدة ذهبية:</strong> المدح والتعزيز الإيجابي أكثر فعالية من العقاب في بناء شخصية الطفل.
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="child-environment">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-home"></i> تنظيم البيئة المنزلية للأطفال</h3>
+                                <p>خلق بيئة آمنة ونظيفة ومنظمة لنمو الطفل</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>ترتيب الألعاب</strong></td>
+                                        <td>وضع الألعاب في الصناديق بعد الانتهاء من اللعب</td>
+                                        <td class="example-cell">وضع الألعاب في الصناديق بعد الانتهاء من اللعب</td>
+                                        <td class="icon-cell">🧺🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تنظيف الملابس</strong></td>
+                                        <td>غسل الملابس اليومية والأوساخ فورًا</td>
+                                        <td class="example-cell">غسل الملابس بعد اليوم الدراسي، كي القمصان قبل اليوم التالي</td>
+                                        <td class="icon-cell">👕🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>النظافة بعد اللعب</strong></td>
+                                        <td>غسل اليدين بعد اللعب بالخارج أو التراب</td>
+                                        <td class="example-cell">تذكير الطفل بغسل اليدين قبل العودة لتناول الطعام</td>
+                                        <td class="icon-cell">🧴🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Child Care Outside Home -->
+                <div class="card child-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-tree"></i> تطبيق القواعد خارج المنزل للأطفال</h2>
+                        <span class="care-badge child-badge">سلامة ومراقبة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="section-highlight child-highlight">
+                            <h3><i class="fas fa-hiking"></i> التجهيز والمراقبة أثناء الخروج</h3>
+                            <p>إجراءات السلامة والترتيب عند اصطحاب الأطفال خارج المنزل</p>
+                        </div>
+                        
+                        <div class="tabs">
+                            <div class="tab child-tab active" data-tab="child-preparation">التجهيز قبل الخروج</div>
+                            <div class="tab child-tab" data-tab="child-outside-monitoring">المراقبة أثناء الخروج</div>
+                            <div class="tab child-tab" data-tab="child-behavior">الاحترام والسلوك</div>
+                            <div class="tab child-tab" data-tab="child-safety">السلامة أثناء التنقل</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="child-preparation">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>تجهيز حقيبة الأطفال</strong></td>
+                                        <td>تجهيز ملابس إضافية، حفاضات، طعام خفيف</td>
+                                        <td class="example-cell">تأكد من وجود كل شيء في حقيبة الظهر قبل الخروج للحديقة أو المدرسة</td>
+                                        <td class="icon-cell">🎒🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ارتداء ملابس مناسبة</strong></td>
+                                        <td>ارتداء ملابس مناسبة للطقس، نظيفة ومرتبة</td>
+                                        <td class="example-cell">ارتداء جاكيت عند الطقس البارد، أو قبعة للشمس</td>
+                                        <td class="icon-cell">🧢🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="care-tip child-tip">
+                                <i class="fas fa-suitcase tip-icon child-tip-icon"></i>
+                                <strong>قائمة تحقق للحقيبة:</strong> حفاضات، مناديل مبللة، ملابس إضافية، وجبة خفيفة، ماء، أدوات نظافة شخصية، لعبة صغيرة.
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="child-outside-monitoring">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>الإمساك باليد</strong></td>
+                                        <td>الإمساك بيد الطفل أو استخدام عربة الأطفال</td>
+                                        <td class="example-cell">تثبيت الطفل في عربة الأطفال عند الخروج من المنزل</td>
+                                        <td class="icon-cell">👀🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>عدم ترك الأطفال وحدهم</strong></td>
+                                        <td>البقاء دائمًا قريبًا منهم</td>
+                                        <td class="example-cell">لا تترك الطفل يلعب بمفرده في الحديقة أو عند الجيران</td>
+                                        <td class="icon-cell">⚠️🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="emergency-section">
+                                <h3><i class="fas fa-exclamation-triangle"></i> قواعد السلامة الطارئة:</h3>
+                                <ul class="emergency-list">
+                                    <li>تعليم الطفل اسمه الكامل ورقم هاتف الوالدين</li>
+                                    <li>تعليم الطفل البقاء في مكانه إذا ضاع والصراخ لطلب المساعدة</li>
+                                    <li>عدم التحدث مع الغرباء أو قبول أي طعام منهم</li>
+                                    <li>البقاء في الأماكن المفتوحة والمرئية للجميع</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="child-behavior">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-handshake"></i> الاحترام والسلوك الاجتماعي</h3>
+                                <p>تعليم الطفل آداب التعامل في الأماكن العامة</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>احترام الآخرين</strong></td>
+                                        <td>تعليم الطفل التحية والكلمات المهذبة</td>
+                                        <td class="example-cell">تعليم الطفل قول "شكراً" و"من فضلك" عند التعامل مع الآخرين</td>
+                                        <td class="icon-cell">🗣️🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>المشاركة الإيجابية</strong></td>
+                                        <td>المشاركة في الفعاليات والأنشطة الجماعية</td>
+                                        <td class="example-cell">مساعدة الطفل على ترتيب أدواته في ورش الرسم أو الصفوف التعليمية</td>
+                                        <td class="icon-cell">📚🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tab-content" id="child-safety">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-shield-alt"></i> السلامة أثناء التنقل</h3>
+                                <p>إجراءات السلامة الأساسية عند تنقل الأطفال</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="30%">الوصف</th>
+                                        <th width="30%">مثال عملي</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>تثبيت الطفل</strong></td>
+                                        <td>تثبيت الطفل بأحزمة الأمان أو العربة</td>
+                                        <td class="example-cell">ربط الطفل في مقعد السيارة أو العربة عند المشي أو التنقل</td>
+                                        <td class="icon-cell">🚗🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تجنب الأماكن الخطرة</strong></td>
+                                        <td>الابتعاد عن الشوارع أو المسابح بدون مراقبة</td>
+                                        <td class="example-cell">عدم السماح للطفل باللعب قرب الشارع أو بركة الماء بدون مراقبة</td>
+                                        <td class="icon-cell">⚠️🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="safety-grid">
+                                <div class="safety-item">
+                                    <span class="safety-icon">🚸</span>
+                                    <div>عبور الشارع من الأماكن المخصصة</div>
+                                </div>
+                                <div class="safety-item">
+                                    <span class="safety-icon">🚫</span>
+                                    <div>عدم اللعب قرب السيارات المتحركة</div>
+                                </div>
+                                <div class="safety-item">
+                                    <span class="safety-icon">🏊‍♂️</span>
+                                    <div>السباحة فقط مع مراقب</div>
+                                </div>
+                                <div class="safety-item">
+                                    <span class="safety-icon">☀️</span>
+                                    <div>حماية من الشمس بالقبعة والواقي</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Child Care Schedule -->
+                <div class="card child-card" id="child-schedule">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-alt"></i> 📊 جدول متابعة الالتزام لرعاية الأطفال</h2>
+                        <span class="care-badge child-badge">فندقية</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs">
+                            <div class="tab child-tab active" data-tab="child-daily">المهام اليومية</div>
+                            <div class="tab child-tab" data-tab="child-weekly">المهام الأسبوعية</div>
+                            <div class="tab child-tab" data-tab="child-monthly">المهام الشهرية</div>
+                            <div class="tab child-tab" data-tab="child-checklist">قائمة التتبع</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="child-daily">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-sun"></i> المهام اليومية - روتين العناية الأساسي</h3>
+                                <p>المهام الأساسية التي يجب تنفيذها يوميًا لرعاية الطفل</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="25%">البند</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="15%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                        <th width="10%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>غسل اليدين قبل الأكل</strong></td>
+                                        <td>غسل اليدين بالصابون قبل الطعام</td>
+                                        <td class="icon-cell">🧴🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تنظيف الأسنان</strong></td>
+                                        <td>تنظيف الأسنان مرتين يوميًا</td>
+                                        <td class="icon-cell">🪥🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تغيير الملابس والحفاظات</strong></td>
+                                        <td>تبديل الملابس المتسخة والحفاظات</td>
+                                        <td class="icon-cell">👕🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مراقبة الأطفال</strong></td>
+                                        <td>متابعة الأطفال دائمًا</td>
+                                        <td class="icon-cell">👀🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>المشاركة في اللعب</strong></td>
+                                        <td>اللعب مع الأطفال بالدمى أو البازل</td>
+                                        <td class="icon-cell">🎲🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تقديم أنشطة تعليمية</strong></td>
+                                        <td>تعليم مهارات جديدة</td>
+                                        <td class="icon-cell">📚🖍️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-daily-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="timeline child-timeline">
+                                <h4><i class="fas fa-clock"></i> الجدول الزمني اليومي للطفل:</h4>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">صباحاً (7:00 - 9:00)</div>
+                                    <div>الاستيقاظ، نظافة شخصية، فطور صحي</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">صباحاً (9:00 - 12:00)</div>
+                                    <div>أنشطة تعليمية، لعب هادئ، وقت القراءة</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">ظهراً (12:00 - 14:00)</div>
+                                    <div>غداء، وقت راحة أو قيلولة</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">عصراً (14:00 - 16:00)</div>
+                                    <div>لعب حر، أنشطة خارجية، تمارين حركية</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">مساءً (16:00 - 18:00)</div>
+                                    <div>وجبة خفيفة، أنشطة عائلية، وقت هادئ</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">مساءً (18:00 - 20:00)</div>
+                                    <div>عشاء، وقت استحمام، تحضير للنوم</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="child-weekly">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-calendar-week"></i> المهام الأسبوعية - تعزيز جودة العناية</h3>
+                                <p>مهام أسبوعية لتحسين بيئة الطفل وصحته</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="25%">البند</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="15%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                        <th width="10%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>تنظيف الألعاب الكبيرة</strong></td>
+                                        <td>مسح الألعاب البلاستيكية والخشبية</td>
+                                        <td class="icon-cell">🧸🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>غسل الستائر الخفيفة</strong></td>
+                                        <td>تنظيف الستائر في غرف اللعب وغرف الأطفال</td>
+                                        <td class="icon-cell">🪟🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مراجعة حقيبة الأطفال</strong></td>
+                                        <td>التأكد من وجود كل المستلزمات</td>
+                                        <td class="icon-cell">🎒🧴</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ترتيب غرف اللعب</strong></td>
+                                        <td>تنظيف الأرضيات وترتيب الألعاب</td>
+                                        <td class="icon-cell">🧺🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مراقبة الأنشطة التعليمية</strong></td>
+                                        <td>متابعة تقدم الطفل في التعلم</td>
+                                        <td class="icon-cell">📚🖍️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-weekly-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tab-content" id="child-monthly">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-calendar-star"></i> المهام الشهرية - تحسين جودة الحياة</h3>
+                                <p>مهام شهرية للتطوير الشامل لبيئة الطفل</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="25%">البند</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="15%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                        <th width="10%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>غسل شامل للستائر والسجاد</strong></td>
+                                        <td>تنظيف شامل لجميع الستائر والسجاد</td>
+                                        <td class="icon-cell">🧺🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تعقيم الأدوات</strong></td>
+                                        <td>تعقيم الألعاب، أدوات الطعام، أدوات الطفل</td>
+                                        <td class="icon-cell">🧴🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مراجعة أغراض الأطفال</strong></td>
+                                        <td>التحقق من حالة الملابس والألعاب</td>
+                                        <td class="icon-cell">👕🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تحديث قائمة المستلزمات</strong></td>
+                                        <td>التأكد من توافر كل ما يلزم للرحلات أو المدرسة</td>
+                                        <td class="icon-cell">📋🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="child-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تقييم الروتين الشهري</strong></td>
+                                        <td>مراجعة جودة تطبيق جميع المهام</td>
+                                        <td class="icon-cell">📝🧸</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="child-monthly-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tab-content" id="child-checklist">
+                            <div class="section-highlight child-highlight">
+                                <h3><i class="fas fa-clipboard-check"></i> قائمة التتبع اليومي - تقييم الأداء</h3>
+                                <p>تتبع تنفيذ المهام اليومية وتقييم مستوى الالتزام</p>
+                            </div>
+                            
+                            <div class="progress-bar">
+                                <div class="progress child-progress" id="child-progress" style="width: 0%"></div>
+                            </div>
+                            <div class="stat" style="margin-top: 10px;">
+                                <span>نسبة إنجاز مهام الطفل اليوم:</span>
+                                <span id="child-score">0%</span>
+                            </div>
+                            
+                            <div class="care-tip child-tip">
+                                <i class="fas fa-chart-line tip-icon child-tip-icon"></i>
+                                <strong>هدف الجودة:</strong> حاولي تحقيق نسبة 85% على الأقل يوميًا. النسبة 90-100% تعني عناية ممتازة بمعايير فندقية.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Elderly Care Section -->
+                <div class="card elderly-card" id="elderly-care">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user-friends"></i> جدول التعامل مع كبار السن - للعاملة المنزلية</h2>
+                        <span class="care-badge elderly-badge">رعاية وصحة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs">
+                            <div class="tab elderly-tab active" data-tab="elderly-daily">المهام اليومية</div>
+                            <div class="tab elderly-tab" data-tab="elderly-weekly">المهام الأسبوعية</div>
+                            <div class="tab elderly-tab" data-tab="elderly-monthly">المهام الشهرية</div>
+                            <div class="tab elderly-tab" data-tab="elderly-activities">الأنشطة</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="elderly-daily">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-heartbeat"></i> روتين العناية اليومي بكبار السن</h3>
+                                <p>المهام الأساسية للحفاظ على صحة وراحة المسن يوميًا</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="25%">البند</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="15%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                        <th width="10%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>متابعة الحالة الصحية</strong></td>
+                                        <td>فحص درجة الحرارة، ضغط الدم، ومراقبة أي أعراض</td>
+                                        <td class="icon-cell">🩺🌡️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تقديم الأدوية اليومية</strong></td>
+                                        <td>إعطاء الأدوية حسب الوصفة الطبية</td>
+                                        <td class="icon-cell">💊🕒</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>النظافة الشخصية</strong></td>
+                                        <td>مساعدة المسن على الاستحمام، غسل الوجه، فرش الأسنان</td>
+                                        <td class="icon-cell">🛁🧴</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>التغذية</strong></td>
+                                        <td>تحضير وجبات صحية ومتوازنة</td>
+                                        <td class="icon-cell">🍎🥛</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>التنقل والمشي</strong></td>
+                                        <td>مساعدة كبار السن على الحركة أو ممارسة تمارين خفيفة</td>
+                                        <td class="icon-cell">🚶‍♂️🚶‍♀️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-daily-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>التواصل والاحترام</strong></td>
+                                        <td>التعامل بلطف وصبر والاستماع لمشاكلهم</td>
+                                        <td class="icon-cell">👂🙂</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-daily-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="timeline elderly-timeline">
+                                <h4><i class="fas fa-clock"></i> الجدول الزمني اليومي للمسن:</h4>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">صباحاً (7:00 - 9:00)</div>
+                                    <div>الاستيقاظ، قياس الضغط والسكر، نظافة شخصية، فطور</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">صباحاً (9:00 - 11:00)</div>
+                                    <div>تمارين خفيفة، قراءة، نشاط ذهني</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">ظهراً (11:00 - 13:00)</div>
+                                    <div>وقت الراحة، تناول الأدوية، غداء</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">عصراً (13:00 - 16:00)</div>
+                                    <div>قيلولة، وقت الشاي، أنشطة ترفيهية</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">مساءً (16:00 - 18:00)</div>
+                                    <div>نزهة قصيرة، تواصل اجتماعي، أنشطة هادئة</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-time">مساءً (18:00 - 20:00)</div>
+                                    <div>عشاء، وقت الأسرة، تحضير للنوم</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="elderly-weekly">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-calendar-week"></i> المهام الأسبوعية - تعزيز جودة العناية</h3>
+                                <p>مهام أسبوعية لتحسين صحة ورفاهية المسن</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="25%">البند</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="15%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                        <th width="10%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>ترتيب غرفة كبار السن</strong></td>
+                                        <td>تنظيف الغرفة، ترتيب الملابس والأغطية</td>
+                                        <td class="icon-cell">🛏️🧹</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تنظيم الأدوية الأسبوعي</strong></td>
+                                        <td>مراجعة الأدوية وتجديد النواقص</td>
+                                        <td class="icon-cell">💊📋</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تمارين متقدمة</strong></td>
+                                        <td>ممارسة تمارين خفيفة أو جلسات يوجا</td>
+                                        <td class="icon-cell">🧘‍♂️🧘‍♀️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-weekly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الترفيه والتسلية</strong></td>
+                                        <td>التخطيط لنشاط أسبوعي مميز</td>
+                                        <td class="icon-cell">🎨🎶</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-weekly-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="activity-cards">
+                                <div class="activity-card elderly-activity">
+                                    <div class="activity-header">
+                                        <span>أنشطة ذهنية</span>
+                                        <span>🧠</span>
+                                    </div>
+                                    <div class="activity-body">
+                                        <ul>
+                                            <li>ألعاب الذاكرة والألغاز البسيطة</li>
+                                            <li>قراءة الصحف والقصص القصيرة</li>
+                                            <li>محادثات حول الذكريات والتاريخ</li>
+                                            <li>حل الكلمات المتقاطعة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card elderly-activity">
+                                    <div class="activity-header">
+                                        <span>أنشطة بدنية خفيفة</span>
+                                        <span>🚶‍♂️</span>
+                                    </div>
+                                    <div class="activity-body">
+                                        <ul>
+                                            <li>تمارين تمدد خفيفة</li>
+                                            <li>المشي في الحديقة أو الفناء</li>
+                                            <li>تمارين الجلوس والوقوف</li>
+                                            <li>تمارين التنفس والاسترخاء</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="elderly-monthly">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-calendar-star"></i> المهام الشهرية - تحسين جودة الحياة</h3>
+                                <p>مهام شهرية لتحسين البيئة والصحة الشاملة للمسن</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="25%">البند</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="15%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                        <th width="10%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>فحص طبي شامل</strong></td>
+                                        <td>مراجعة الطبيب أو إجراء فحوص دورية</td>
+                                        <td class="icon-cell">🏥🩺</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تحديث خطة الأنشطة</strong></td>
+                                        <td>إضافة أنشطة جديدة أو تعديل الروتين</td>
+                                        <td class="icon-cell">🧩🌳</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مراجعة النظام الغذائي</strong></td>
+                                        <td>التأكد من توازن وجبات الشهر</td>
+                                        <td class="icon-cell">🍎🥗</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-monthly-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تنظيف شامل للأدوات</strong></td>
+                                        <td>تنظيف شامل لكل الأدوات المستخدمة</td>
+                                        <td class="icon-cell">🧴🧹</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                        <td><input type="checkbox" class="elderly-monthly-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tab-content" id="elderly-activities">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-tasks"></i> جدول الأنشطة اليومية للمسن</h3>
+                                <p>أنشطة متنوعة للحفاظ على النشاط الذهني والبدني</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="15%">الوقت</th>
+                                        <th width="25%">النشاط</th>
+                                        <th width="40%">الوصف</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>صباحاً</strong></td>
+                                        <td>قراءة القرآن / نشاط روحي</td>
+                                        <td>قراءة نصوص دينية أو الاستماع لتلاوة</td>
+                                        <td class="icon-cell">📖🎧</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>صباحاً</strong></td>
+                                        <td>تمارين خفيفة</td>
+                                        <td>تمارين تمدد أو مشي داخل المنزل</td>
+                                        <td class="icon-cell">🚶‍♂️🧘‍♂️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>عصراً</strong></td>
+                                        <td>وقت الشاي والمحادثة</td>
+                                        <td>تقديم مشروبات دافئة ومحادثة هادئة</td>
+                                        <td class="icon-cell">🍵🗣️</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>عصراً</strong></td>
+                                        <td>نشاط ترفيهي</td>
+                                        <td>مشاهدة برنامج مفيد، ألعاب ذهنية</td>
+                                        <td class="icon-cell">📺🧩</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>مساءً</strong></td>
+                                        <td>تواصل اجتماعي</td>
+                                        <td>زيارة الأصدقاء أو مكالمات مع العائلة</td>
+                                        <td class="icon-cell">🏡👨‍👩‍👧‍👦</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Elderly Care Schedule -->
+                <div class="card elderly-card" id="elderly-schedule">
+                    <div class="card-header">
+                        <h2><i class="fas fa-calendar-check"></i> جدول متابعة الالتزام لرعاية كبار السن</h2>
+                        <span class="care-badge elderly-badge">متابعة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs">
+                            <div class="tab elderly-tab active" data-tab="elderly-checklist">قائمة التتبع اليومي</div>
+                            <div class="tab elderly-tab" data-tab="elderly-medication">جدول الأدوية</div>
+                            <div class="tab elderly-tab" data-tab="elderly-nutrition">التغذية</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="elderly-checklist">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-clipboard-list"></i> تقييم الأداء اليومي في رعاية المسن</h3>
+                                <p>تتبع تنفيذ المهام اليومية وتقييم مستوى الالتزام</p>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>الصحة:</strong> قياس الضغط والسكر، مراقبة الأعراض</span>
+                                </label>
+                                <span class="importance-level high-importance">عالي</span>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>الأدوية:</strong> إعطاء الأدوية في الوقت المحدد بالجرعة الصحيحة</span>
+                                </label>
+                                <span class="importance-level high-importance">عالي</span>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>النظافة:</strong> الاستحمام، تنظيف الأسنان، العناية الشخصية</span>
+                                </label>
+                                <span class="importance-level high-importance">عالي</span>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>التغذية:</strong> تقديم وجبات متوازنة وصحية</span>
+                                </label>
+                                <span class="importance-level medium-importance">متوسط</span>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>الحركة:</strong> تمارين خفيفة أو نزهة قصيرة</span>
+                                </label>
+                                <span class="importance-level medium-importance">متوسط</span>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>الترفيه:</strong> أنشطة ذهنية أو ترفيهية</span>
+                                </label>
+                                <span class="importance-level medium-importance">متوسط</span>
+                            </div>
+                            
+                            <div class="checklist-item">
+                                <label>
+                                    <input type="checkbox" class="elderly-daily-checklist">
+                                    <span><strong>التواصل:</strong> محادثة هادئة، الاستماع، التفاعل الاجتماعي</span>
+                                </label>
+                                <span class="importance-level medium-importance">متوسط</span>
+                            </div>
+                            
+                            <div class="progress-bar">
+                                <div class="progress elderly-progress" id="elderly-progress" style="width: 0%"></div>
+                            </div>
+                            <div class="stat" style="margin-top: 10px;">
+                                <span>نسبة إنجاز مهام المسن اليوم:</span>
+                                <span id="elderly-score">0%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="elderly-medication">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-pills"></i> جدول متابعة الأدوية اليومية</h3>
+                                <p>تتبع تناول الأدوية في الأوقات المحددة</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">الدواء</th>
+                                        <th width="25%">الجرعة</th>
+                                        <th width="25%">الوقت</th>
+                                        <th width="15%">مع الطعام</th>
+                                        <th width="15%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ضغط الدم</td>
+                                        <td>قرص واحد</td>
+                                        <td>صباحاً (8:00)</td>
+                                        <td>قبل الطعام</td>
+                                        <td><input type="checkbox" class="medication-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>السكر</td>
+                                        <td>قرص واحد</td>
+                                        <td>صباحاً (8:00)</td>
+                                        <td>بعد الطعام</td>
+                                        <td><input type="checkbox" class="medication-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>مسكن الآلام</td>
+                                        <td>قرص واحد</td>
+                                        <td>ظهراً (13:00)</td>
+                                        <td>بعد الطعام</td>
+                                        <td><input type="checkbox" class="medication-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>فيتامينات</td>
+                                        <td>قرص واحد</td>
+                                        <td>مساءً (19:00)</td>
+                                        <td>مع الطعام</td>
+                                        <td><input type="checkbox" class="medication-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="care-tip elderly-tip">
+                                <i class="fas fa-exclamation-triangle tip-icon elderly-tip-icon"></i>
+                                <strong>تحذيرات الأدوية:</strong> لا تخلط الأدوية دون استشارة الطبيب. احتفظ بالأدوية بعيدًا عن متناول الأطفال. تأكد من تاريخ الصلاحية.
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="elderly-nutrition">
+                            <div class="section-highlight elderly-highlight">
+                                <h3><i class="fas fa-apple-alt"></i> جدول التغذية اليومية للمسن</h3>
+                                <p>وجبات متوازنة وصحية تناسب احتياجات المسن الصحية</p>
+                            </div>
+                            
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="15%">الوقت</th>
+                                        <th width="30%">الوجبة</th>
+                                        <th width="40%">المكونات المقترحة</th>
+                                        <th width="15%">✅/❌</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>الإفطار</strong></td>
+                                        <td>وجبة متوازنة</td>
+                                        <td>بيض مسلوق، خبز أسمر، جبنة قليلة الدسم، فواكه</td>
+                                        <td><input type="checkbox" class="nutrition-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>وجبة خفيفة</strong></td>
+                                        <td>فواكه أو مكسرات</td>
+                                        <td>تفاح، موز، لوز، عين جمل (كميات محدودة)</td>
+                                        <td><input type="checkbox" class="nutrition-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الغداء</strong></td>
+                                        <td>وجبة رئيسية</td>
+                                        <td>بروتين (دجاج/سمك)، خضار مطهوة، أرز/بطاطس، سلطة</td>
+                                        <td><input type="checkbox" class="nutrition-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>عصراً</strong></td>
+                                        <td>مشروب صحي</td>
+                                        <td>شاي أعشاب، حليب دافئ، عصير طبيعي غير محلى</td>
+                                        <td><input type="checkbox" class="nutrition-check"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>العشاء</strong></td>
+                                        <td>وجبة خفيفة</td>
+                                        <td>شوربة، سلطة، زبادي، خبز خفيف</td>
+                                        <td><input type="checkbox" class="nutrition-check"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="care-tip elderly-tip">
+                                <i class="fas fa-utensils tip-icon elderly-tip-icon"></i>
+                                <strong>نصائح التغذية:</strong> قدمي وجبات صغيرة ومتكررة. تجنبي الأطعمة المالحة أو الدهنية. تأكدي من مضغ الطعام جيدًا. قدمي كميات كافية من الماء.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Safety Section -->
+                <div class="card" id="safety">
+                    <div class="card-header" style="background-color: var(--accent-color);">
+                        <h2><i class="fas fa-shield-alt"></i> إجراءات السلامة والطوارئ</h2>
+                        <span class="care-badge" style="background-color: var(--accent-color);">طارئ</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="emergency-section">
+                            <h3><i class="fas fa-phone-alt"></i> أرقام الطوارئ الأساسية:</h3>
+                            <ul class="emergency-list">
+                                <li><strong>الطوارئ:</strong> 911 أو 112</li>
+                                <li><strong>الإسعاف:</strong> 997</li>
+                                <li><strong>الشرطة:</strong> 999</li>
+                                <li><strong>الدفاع المدني:</strong> 998</li>
+                                <li><strong>طبيب الأسرة:</strong> ___________________</li>
+                                <li><strong>أقرب مستشفى:</strong> ___________________</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="safety-grid">
+                            <div class="safety-item">
+                                <span class="safety-icon">🚑</span>
+                                <div>في حالة الطوارئ الطبية، اطلبي الإسعاف فورًا</div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon">🔥</span>
+                                <div>تعرفي على مواقع طفايات الحريق ومخارج الطوارئ</div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon">💊</span>
+                                <div>احفظي الأدوية بعيدًا عن متناول الأطفال</div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon">⚠️</span>
+                                <div>أبعدي المواد الخطرة عن الأطفال والمسنين</div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon">📞</span>
+                                <div>احفظي أرقام الطوارئ في مكان واضح</div>
+                            </div>
+                            <div class="safety-item">
+                                <span class="safety-icon">👵</span>
+                                <div>تأكدي من عدم انزلاق المسن على الأرضيات المبللة</div>
+                            </div>
+                        </div>
+                        
+                        <div class="care-tip" style="border-right-color: var(--accent-color); background-color: #fff3cd;">
+                            <i class="fas fa-first-aid tip-icon" style="color: var(--accent-color);"></i>
+                            <strong>الإسعافات الأولية الأساسية:</strong>
+                            <ul style="margin-top: 10px;">
+                                <li>تعلمي كيفية إجراء الإنعاش القلبي الرئوي الأساسي</li>
+                                <li>تعرفي على كيفية التعامل مع حالات الاختناق</li>
+                                <li>احتفظي بحقيبة إسعافات أولية في مكان معروف</li>
+                                <li>تعلمي كيفية إيقاف النزيف البسيط</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="stats-card child-stats-card">
+                    <h3><i class="fas fa-chart-pie"></i> إحصائيات العناية بالأطفال</h3>
+                    <div class="stat">
+                        <span>نسبة الإنجاز اليوم:</span>
+                        <span id="child-daily-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress child-progress" id="child-daily-progress" style="width: 0%"></div>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>المهام الحرجة المتبقية:</span>
+                        <span id="child-critical-remaining">3</span>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>أنشطة اليوم:</span>
+                        <span id="child-today-activities">0/5</span>
+                    </div>
+                    
+                    <button class="btn child-btn" id="reset-child">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                </div>
+                
+                <div class="stats-card elderly-stats-card">
+                    <h3><i class="fas fa-chart-line"></i> إحصائيات العناية بكبار السن</h3>
+                    <div class="stat">
+                        <span>نسبة الإنجاز اليوم:</span>
+                        <span id="elderly-daily-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress elderly-progress" id="elderly-daily-progress" style="width: 0%"></div>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>الأدوية المتبقية:</span>
+                        <span id="elderly-medications-remaining">4</span>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>وجبات اليوم:</span>
+                        <span id="elderly-today-meals">0/5</span>
+                    </div>
+                    
+                    <button class="btn elderly-btn" id="reset-elderly">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                </div>
+                
+                <div class="stats-card">
+                    <h3><i class="fas fa-star"></i> مستويات الجودة</h3>
+                    <div class="instructions">
+                        <p><strong>⭐ مستوى أساسي:</strong></p>
+                        <ul>
+                            <li>تلبية الاحتياجات الأساسية</li>
+                            <li>السلامة والنظافة العامة</li>
+                            <li>التغذية الأساسية</li>
+                        </ul>
+                        
+                        <p><strong>⭐⭐ مستوى فندقي:</strong></p>
+                        <ul>
+                            <li>عناية شاملة وجودة عالية</li>
+                            <li>أنشطة تعليمية وترفيهية</li>
+                            <li>متابعة صحية منتظمة</li>
+                            <li>تواصل احترافي</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> تحذيرات السلامة</h3>
+                    <div class="instructions">
+                        <ul>
+                            <li>عدم ترك الأطفال دون مراقبة 👀</li>
+                            <li>تأمين المنزل من مخاطر السقوط ⚠️</li>
+                            <li>تخزين الأدوية بعيدًا عن المتناول 💊</li>
+                            <li>التأكد من درجة حرارة الطعام 🌡️</li>
+                            <li>التأكد من نظافة وتعقيم الأدوات 🧴</li>
+                            <li>البقاء هادئًا في المواقف الطارئة 🆘</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3><i class="fas fa-print"></i> أدوات الطباعة</h3>
+                    <div style="text-align: center;">
+                        <button class="btn btn-print" onclick="window.print()">
+                            <i class="fas fa-print"></i> طباعة جميع الجداول
+                        </button>
+                        <p style="margin-top: 10px; font-size: 0.8rem; color: #777;">طباعة الجداول اليومية والأسبوعية للمتابعة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>منصة العناية بالأطفال وكبار السن للعاملة المنزلية | معايير فندقية ⭐⭐⭐⭐⭐⭐⭐</p>
+            <p>© 2023 - جميع الحقوق محفوظة | تصميم للمساعدة في الرعاية الاحترافية</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                const parent = this.closest('.card-body');
+                
+                // Remove active class from all tabs in this card
+                parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                parent.querySelector(`#${tabId}`).classList.add('active');
+            });
+        });
+        
+        // Checklist functionality for child care
+        document.querySelectorAll('.child-daily-check, .child-weekly-check, .child-monthly-check, .child-daily-checklist').forEach(checkbox => {
+            checkbox.addEventListener('change', updateChildStats);
+        });
+        
+        // Checklist functionality for elderly care
+        document.querySelectorAll('.elderly-daily-check, .elderly-weekly-check, .elderly-monthly-check, .elderly-daily-checklist, .medication-check, .nutrition-check').forEach(checkbox => {
+            checkbox.addEventListener('change', updateElderlyStats);
+        });
+        
+        function updateChildStats() {
+            // Daily tasks
+            const dailyCheckboxes = document.querySelectorAll('.child-daily-check');
+            const dailyChecked = document.querySelectorAll('.child-daily-check:checked');
+            const dailyPercentage = dailyCheckboxes.length > 0 ? Math.round((dailyChecked.length / dailyCheckboxes.length) * 100) : 0;
+            
+            // Weekly tasks
+            const weeklyCheckboxes = document.querySelectorAll('.child-weekly-check');
+            const weeklyChecked = document.querySelectorAll('.child-weekly-check:checked');
+            
+            // Monthly tasks
+            const monthlyCheckboxes = document.querySelectorAll('.child-monthly-check');
+            const monthlyChecked = document.querySelectorAll('.child-monthly-check:checked');
+            
+            // Daily checklist
+            const dailyListCheckboxes = document.querySelectorAll('.child-daily-checklist');
+            const dailyListChecked = document.querySelectorAll('.child-daily-checklist:checked');
+            const dailyListPercentage = dailyListCheckboxes.length > 0 ? Math.round((dailyListChecked.length / dailyListCheckboxes.length) * 100) : 0;
+            
+            // Update progress bars and scores
+            document.getElementById('child-progress').style.width = `${dailyListPercentage}%`;
+            document.getElementById('child-score').textContent = `${dailyListPercentage}%`;
+            
+            document.getElementById('child-daily-progress').style.width = `${dailyPercentage}%`;
+            document.getElementById('child-daily-percentage').textContent = `${dailyPercentage}%`;
+            
+            // Calculate critical tasks remaining (first 3 are critical)
+            const criticalRemaining = Math.max(0, 3 - dailyListChecked.length);
+            document.getElementById('child-critical-remaining').textContent = criticalRemaining;
+            
+            // Calculate activities completed
+            const activitiesCompleted = dailyListChecked.length;
+            document.getElementById('child-today-activities').textContent = `${activitiesCompleted}/${dailyListCheckboxes.length}`;
+            
+            // Color code the progress bars
+            updateProgressColor(document.getElementById('child-progress'), dailyListPercentage);
+            updateProgressColor(document.getElementById('child-daily-progress'), dailyPercentage);
+        }
+        
+        function updateElderlyStats() {
+            // Daily tasks
+            const dailyCheckboxes = document.querySelectorAll('.elderly-daily-check');
+            const dailyChecked = document.querySelectorAll('.elderly-daily-check:checked');
+            const dailyPercentage = dailyCheckboxes.length > 0 ? Math.round((dailyChecked.length / dailyCheckboxes.length) * 100) : 0;
+            
+            // Weekly tasks
+            const weeklyCheckboxes = document.querySelectorAll('.elderly-weekly-check');
+            const weeklyChecked = document.querySelectorAll('.elderly-weekly-check:checked');
+            
+            // Monthly tasks
+            const monthlyCheckboxes = document.querySelectorAll('.elderly-monthly-check');
+            const monthlyChecked = document.querySelectorAll('.elderly-monthly-check:checked');
+            
+            // Daily checklist
+            const dailyListCheckboxes = document.querySelectorAll('.elderly-daily-checklist');
+            const dailyListChecked = document.querySelectorAll('.elderly-daily-checklist:checked');
+            const dailyListPercentage = dailyListCheckboxes.length > 0 ? Math.round((dailyListChecked.length / dailyListCheckboxes.length) * 100) : 0;
+            
+            // Medication tracking
+            const medicationCheckboxes = document.querySelectorAll('.medication-check');
+            const medicationChecked = document.querySelectorAll('.medication-check:checked');
+            const medicationsRemaining = medicationCheckboxes.length - medicationChecked.length;
+            
+            // Nutrition tracking
+            const nutritionCheckboxes = document.querySelectorAll('.nutrition-check');
+            const nutritionChecked = document.querySelectorAll('.nutrition-check:checked');
+            
+            // Update progress bars and scores
+            document.getElementById('elderly-progress').style.width = `${dailyListPercentage}%`;
+            document.getElementById('elderly-score').textContent = `${dailyListPercentage}%`;
+            
+            document.getElementById('elderly-daily-progress').style.width = `${dailyPercentage}%`;
+            document.getElementById('elderly-daily-percentage').textContent = `${dailyPercentage}%`;
+            
+            // Update medication and nutrition stats
+            document.getElementById('elderly-medications-remaining').textContent = medicationsRemaining;
+            document.getElementById('elderly-today-meals').textContent = `${nutritionChecked.length}/${nutritionCheckboxes.length}`;
+            
+            // Color code the progress bars
+            updateProgressColor(document.getElementById('elderly-progress'), dailyListPercentage);
+            updateProgressColor(document.getElementById('elderly-daily-progress'), dailyPercentage);
+        }
+        
+        function updateProgressColor(progressBar, percentage) {
+            if (percentage >= 90) {
+                progressBar.style.backgroundColor = '#5cb85c'; // Green
+            } else if (percentage >= 70) {
+                progressBar.style.backgroundColor = progressBar.classList.contains('child-progress') ? '#6a89cc' : '#78e08f'; // Original color
+            } else if (percentage >= 50) {
+                progressBar.style.backgroundColor = '#f0ad4e'; // Orange
+            } else {
+                progressBar.style.backgroundColor = '#d9534f'; // Red
+            }
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Tooltip functionality for stars
+        document.querySelectorAll('.stars[title]').forEach(starElement => {
+            starElement.addEventListener('mouseenter', function() {
+                // Tooltip is shown via CSS
+            });
+        });
+        
+        // Reset buttons functionality
+        document.getElementById('reset-child').addEventListener('click', function() {
+            if (confirm('هل تريد إعادة تعيين جميع مربعات الاختيار الخاصة برعاية الأطفال؟')) {
+                document.querySelectorAll('.child-daily-check, .child-weekly-check, .child-monthly-check, .child-daily-checklist').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                updateChildStats();
+            }
+        });
+        
+        document.getElementById('reset-elderly').addEventListener('click', function() {
+            if (confirm('هل تريد إعادة تعيين جميع مربعات الاختيار الخاصة برعاية كبار السن؟')) {
+                document.querySelectorAll('.elderly-daily-check, .elderly-weekly-check, .elderly-monthly-check, .elderly-daily-checklist, .medication-check, .nutrition-check').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                updateElderlyStats();
+            }
+        });
+        
+        // Simulate some completed tasks for demo
+        window.addEventListener('load', function() {
+            // Child care demo
+            const childDailyCheckboxes = document.querySelectorAll('.child-daily-check');
+            if(childDailyCheckboxes.length > 0) {
+                // Check first 4 boxes for demo
+                for (let i = 0; i < 4; i++) {
+                    if (childDailyCheckboxes[i]) {
+                        childDailyCheckboxes[i].checked = true;
+                    }
+                }
+            }
+            
+            const childDailyListCheckboxes = document.querySelectorAll('.child-daily-checklist');
+            if(childDailyListCheckboxes.length > 0) {
+                // Check first 5 boxes for demo
+                for (let i = 0; i < 5; i++) {
+                    if (childDailyListCheckboxes[i]) {
+                        childDailyListCheckboxes[i].checked = true;
+                    }
+                }
+            }
+            
+            // Elderly care demo
+            const elderlyDailyCheckboxes = document.querySelectorAll('.elderly-daily-check');
+            if(elderlyDailyCheckboxes.length > 0) {
+                // Check first 4 boxes for demo
+                for (let i = 0; i < 4; i++) {
+                    if (elderlyDailyCheckboxes[i]) {
+                        elderlyDailyCheckboxes[i].checked = true;
+                    }
+                }
+            }
+            
+            const elderlyDailyListCheckboxes = document.querySelectorAll('.elderly-daily-checklist');
+            if(elderlyDailyListCheckboxes.length > 0) {
+                // Check first 5 boxes for demo
+                for (let i = 0; i < 5; i++) {
+                    if (elderlyDailyListCheckboxes[i]) {
+                        elderlyDailyListCheckboxes[i].checked = true;
+                    }
+                }
+            }
+            
+            // Check some medication and nutrition boxes for demo
+            const medicationCheckboxes = document.querySelectorAll('.medication-check');
+            if(medicationCheckboxes.length > 0) {
+                medicationCheckboxes[0].checked = true;
+                medicationCheckboxes[1].checked = true;
+            }
+            
+            const nutritionCheckboxes = document.querySelectorAll('.nutrition-check');
+            if(nutritionCheckboxes.length > 0) {
+                nutritionCheckboxes[0].checked = true;
+                nutritionCheckboxes[2].checked = true;
+                nutritionCheckboxes[4].checked = true;
+            }
+            
+            // Update statistics
+            updateChildStats();
+            updateElderlyStats();
+        });
+    </script>
+</body>
+</html>

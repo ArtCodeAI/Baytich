@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة آداب وقوانين العاملة المنزلية - النسخة الفندقية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c7873;
+            --secondary-color: #6fb3b8;
+            --accent-color: #ff9a3c;
+            --light-color: #f7f9f9;
+            --dark-color: #2a3d45;
+            --success-color: #5cb85c;
+            --warning-color: #f0ad4e;
+            --danger-color: #d9534f;
+            --etiquette-color: #8a4baf;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--etiquette-color), var(--primary-color));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2.2rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Cards */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            background-color: var(--etiquette-color);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        th {
+            background-color: #f2f6f8;
+            color: var(--dark-color);
+            font-weight: 600;
+            text-align: right;
+            padding: 12px 15px;
+            border-bottom: 2px solid #e1e5e9;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e1e5e9;
+            vertical-align: top;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        /* Checklist */
+        .checklist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-item label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-left: 10px;
+            transform: scale(1.3);
+        }
+        
+        .stars {
+            color: #ffc107;
+            white-space: nowrap;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .stats-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .stats-card h3 {
+            color: var(--etiquette-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: var(--etiquette-color);
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--etiquette-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #7737a0;
+            color: white;
+        }
+        
+        .btn-print {
+            background-color: var(--accent-color);
+            margin-top: 10px;
+        }
+        
+        .btn-print:hover {
+            background-color: #e6892a;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-right: 4px solid var(--etiquette-color);
+        }
+        
+        .instructions h4 {
+            color: var(--etiquette-color);
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-right: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background-color: #f1f1f1;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            min-width: 120px;
+        }
+        
+        .tab.active {
+            background-color: white;
+            color: var(--etiquette-color);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Icons and Stars Styling */
+        .icon-cell {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .stars-cell {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .example-cell {
+            background-color: #f9f9f9;
+            font-size: 0.9rem;
+        }
+        
+        /* Print styles */
+        @media print {
+            header, .sidebar, .btn-print, footer {
+                display: none;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* Etiquette Specific Styles */
+        .etiquette-badge {
+            display: inline-block;
+            background-color: var(--etiquette-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+        
+        .importance-level {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .high-importance {
+            color: #d9534f;
+        }
+        
+        .medium-importance {
+            color: #f0ad4e;
+        }
+        
+        .low-importance {
+            color: #5cb85c;
+        }
+        
+        .section-highlight {
+            border-right: 5px solid var(--etiquette-color);
+            padding-right: 15px;
+            margin-bottom: 25px;
+            background-color: #fcf8ff;
+            border-radius: 0 8px 8px 0;
+            padding: 15px;
+        }
+        
+        .etiquette-tip {
+            background-color: #e8f4fc;
+            border-right: 4px solid #5bc0de;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .tip-icon {
+            color: #5bc0de;
+            margin-left: 8px;
+        }
+        
+        /* Tooltip for stars */
+        .stars[title] {
+            position: relative;
+            cursor: help;
+        }
+        
+        .stars[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-user-tie"></i>
+                    <h1>دليل آداب وقوانين العاملة المنزلية</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#personal-care">العناية الشخصية</a></li>
+                    <li><a href="#communication">التواصل</a></li>
+                    <li><a href="#family">التعامل مع الأسرة</a></li>
+                    <li><a href="#guests">التعامل مع الضيوف</a></li>
+                    <li><a href="#checklist">قائمة التقييم</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Main Content -->
+            <div class="content">
+                <!-- Personal Care Section -->
+                <div class="card" id="personal-care">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user-circle"></i> 1️⃣ العناية الشخصية</h2>
+                        <span class="etiquette-badge">أساسي</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="section-highlight">
+                            <h3><i class="fas fa-shower"></i> نظافة ومظهر الشخصية</h3>
+                            <p>المظهر الشخصي والنظافة يعكسان الانضباط والاحترام للعمل ولأفراد الأسرة.</p>
+                        </div>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="20%">البند</th>
+                                    <th width="25%">الوصف</th>
+                                    <th width="35%">أمثلة عملية</th>
+                                    <th width="10%">أيقونات</th>
+                                    <th width="10%">نجوم الجودة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>الاستحمام اليومي</strong></td>
+                                    <td>تنظيف الجسم بالكامل مع الصابون والماء الدافئ</td>
+                                    <td class="example-cell">الاستحمام صباحًا قبل العمل، ويفضل مسح الجسم جيدًا بعد التعرق</td>
+                                    <td class="icon-cell">🧽🧴</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>تنظيف الأسنان</strong></td>
+                                    <td>مرتين يوميًا، مع الفرشاة والمعجون</td>
+                                    <td class="example-cell">استخدام فرشاة أسنان جديدة كل 3 أشهر، تنظيف الأسنان بعد الإفطار وقبل النوم</td>
+                                    <td class="icon-cell">🪥🧼</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>قص الأظافر</strong></td>
+                                    <td>قص منتظم وتنعيم الحواف</td>
+                                    <td class="example-cell">استخدام مقص ومبرد مرة كل أسبوع</td>
+                                    <td class="icon-cell">✂️🧤</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ترتيب الشعر</strong></td>
+                                    <td>تنظيف الشعر وتمشيطه</td>
+                                    <td class="example-cell">تمشيط الشعر قبل الخروج من المنزل أو قبل التعامل مع الضيوف</td>
+                                    <td class="icon-cell">🧴🧽</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ارتداء ملابس نظيفة</strong></td>
+                                    <td>تغيير الملابس الداخلية واليومية</td>
+                                    <td class="example-cell">ارتداء يونيفورم نظيف كل يوم، تغيير القمصان المتسخة فورًا</td>
+                                    <td class="icon-cell">👕🧤</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>اختيار ألوان مناسبة عند الضيوف</strong></td>
+                                    <td>تقديم مظهر مرتب وجذاب</td>
+                                    <td class="example-cell">ارتداء ألوان فاتحة ومرتبة عند استقبال الضيوف</td>
+                                    <td class="icon-cell">👗🧽</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>العناية بالبشرة والشعر</strong></td>
+                                    <td>استخدام كريمات وزيوت لطيفة</td>
+                                    <td class="example-cell">ترطيب اليدين والوجه بعد الاستحمام، تمشيط الشعر يوميًا</td>
+                                    <td class="icon-cell">🧴🧤</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="etiquette-tip">
+                            <i class="fas fa-lightbulb tip-icon"></i>
+                            <strong>نصيحة عملية:</strong> احتفظي بمستلزمات النظافة الشخصية في حقيبة صغيرة تحتوي على فرشاة أسنان، معجون، مزيل عرق، ومشط لاستخدامها عند الحاجة.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Communication Section -->
+                <div class="card" id="communication">
+                    <div class="card-header">
+                        <h2><i class="fas fa-comments"></i> 2️⃣ التواصل واللباقة</h2>
+                        <span class="etiquette-badge">تفاعلي</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs">
+                            <div class="tab active" data-tab="communication-tab1">أساسيات التواصل</div>
+                            <div class="tab" data-tab="communication-tab2">نبرة الصوت</div>
+                            <div class="tab" data-tab="communication-tab3">الكلمات المحظورة</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="communication-tab1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="25%">الوصف</th>
+                                        <th width="35%">أمثلة عملية</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم الجودة</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>اللباقة مع الأسرة</strong></td>
+                                        <td>استخدام نبرة صوت هادئة واحترام الجميع</td>
+                                        <td class="example-cell">قول "من فضلك" و"شكرًا" عند الطلب أو التحدث مع الأطفال</td>
+                                        <td class="icon-cell">🗣️🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الاستماع جيدًا</strong></td>
+                                        <td>فهم المطلوب قبل الرد</td>
+                                        <td class="example-cell">إعادة ما فهمته من المهمة لتأكيدها: "هل تريدين أن أغسل الصحون الآن؟"</td>
+                                        <td class="icon-cell">👂🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>الابتسام والتفاعل الإيجابي</strong></td>
+                                        <td>تحسين الجو داخل المنزل</td>
+                                        <td class="example-cell">الابتسامة عند تحية الضيوف، التحدث بلطف مع الأطفال</td>
+                                        <td class="icon-cell">🙂🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>كلمات تشجيعية</strong></td>
+                                        <td>رفع المعنويات بأسلوب لطيف</td>
+                                        <td class="example-cell">قول: "عمل رائع!" أو "أحسنتِ يا صغيري" للأطفال وكبار السن</td>
+                                        <td class="icon-cell">🗨️🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تجنب ألفاظ سلبية</strong></td>
+                                        <td>استخدام لغة مهذبة دائمًا</td>
+                                        <td class="example-cell">عدم قول "هذا صعب" أو "لا أعرف" بطريقة سلبية</td>
+                                        <td class="icon-cell">🧤🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tab-content" id="communication-tab2">
+                            <div class="instructions">
+                                <h4><i class="fas fa-volume-down"></i> نبرة الصوت المناسبة</h4>
+                                <ul>
+                                    <li><strong>نبرة هادئة:</strong> استخدام صوت منخفض أثناء العمل اليومي</li>
+                                    <li><strong>نبرة واضحة:</strong> التحدث بوضوح عند شرح شيء ما</li>
+                                    <li><strong>نبرة لطيفة:</strong> استخدام نبرة دافئة مع الأطفال وكبار السن</li>
+                                    <li><strong>نبرة احترافية:</strong> التحدث بثقة ووضوح مع الضيوف</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="instructions">
+                                <h4><i class="fas fa-comment-medical"></i> عبارات يجب استخدامها</h4>
+                                <ul>
+                                    <li>"حاضر" أو "فعلًا" بدلاً من "أها" أو "إيه"</li>
+                                    <li>"من فضلك" عند طلب شيء</li>
+                                    <li>"شكرًا" بعد تلقي مساعدة أو توجيه</li>
+                                    <li>"عفواً" عند ارتكاب خطأ بسيط</li>
+                                    <li>"أهلاً وسهلاً" لاستقبال الضيوف</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="communication-tab3">
+                            <div class="instructions">
+                                <h4><i class="fas fa-ban"></i> كلمات وعبارات يجب تجنبها</h4>
+                                <ul>
+                                    <li>"مش عايز/مش عايزة" - استبدلها بـ "لا أرغب" أو "لن أفعل" بطريقة مهذبة</li>
+                                    <li>"إيه؟" عند عدم الفهم - استبدلها بـ "عفواً، لم أفهم جيداً"</li>
+                                    <li>"مش عارف/مش عارفة" - استبدلها بـ "سأستفسر" أو "سأتعلم"</li>
+                                    <li>"أنا تعبان/ة" - استبدلها بـ "سأستريح قليلاً"</li>
+                                    <li>الصياح أو رفع الصوت في جميع الأحوال</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="etiquette-tip">
+                                <i class="fas fa-handshake tip-icon"></i>
+                                <strong>تذكر:</strong> التواصل الفعال هو مفتاح الثقة والاحترام المتبادل. الاستماع الجيد أهم من الكلام الكثير.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Family Interaction Section -->
+                <div class="card" id="family">
+                    <div class="card-header">
+                        <h2><i class="fas fa-home"></i> 3️⃣ التعامل مع أفراد الأسرة</h2>
+                        <span class="etiquette-badge">احترافي</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="section-highlight">
+                            <h3><i class="fas fa-users"></i> احترام الخصوصية والحدود الشخصية</h3>
+                            <p>التمييز بين المساعدة المهنية والتطفل على الخصوصية هو أساس العلاقة الناجحة مع الأسرة.</p>
+                        </div>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="20%">البند</th>
+                                    <th width="25%">الوصف</th>
+                                    <th width="35%">أمثلة عملية</th>
+                                    <th width="10%">أيقونات</th>
+                                    <th width="10%">نجوم الجودة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>احترام الخصوصية</strong></td>
+                                    <td>عدم التدخل في شؤونهم الشخصية</td>
+                                    <td class="example-cell">عدم فتح الخزائن أو الأجهزة الشخصية دون إذن، عدم الاستماع للمحادثات الخاصة</td>
+                                    <td class="icon-cell">🧤🧽</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>تقديم المساعدة عند الحاجة</strong></td>
+                                    <td>دون فرض المساعدة</td>
+                                    <td class="example-cell">مساعدة الطفل في ترتيب غرفته عند الطلب فقط، عدم الإصرار على المساعدة</td>
+                                    <td class="icon-cell">🙋‍♀️🧽</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>التعامل بلطف مع الأطفال وكبار السن</strong></td>
+                                    <td>حسن المعاملة واللطف</td>
+                                    <td class="example-cell">رفع الطفل برفق، مساعدة كبار السن على الجلوس أو الحركة بلطف</td>
+                                    <td class="icon-cell">👶👵🧤</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>اتباع التعليمات بدقة</strong></td>
+                                    <td>تنفيذ المهام حسب رغبة الأسرة</td>
+                                    <td class="example-cell">غسل الصحون بالطريقة التي تفضلها الأسرة، ترتيب الغرف حسب توجيهات صاحبة المنزل</td>
+                                    <td class="icon-cell">📝🧤</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>تذكير مهذب بالمهام</strong></td>
+                                    <td>تنبيه بلطف عند نسيان أي واجب</td>
+                                    <td class="example-cell">قول: "هل تحبين أن أجهز الغسيل الآن؟" بدلاً من "نسيتِ أن تطلبي مني غسل الملابس"</td>
+                                    <td class="icon-cell">🗨️🧽</td>
+                                    <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="etiquette-tip">
+                            <i class="fas fa-user-shield tip-icon"></i>
+                            <strong>قاعدة ذهبية:</strong> تذكر دائمًا أنك ضيف في منزل الأسرة. احترم خصوصيتهم وحدودهم الشخصية كما تحب أن يحترم أحد ضيوفك خصوصيتك.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Guests Interaction Section -->
+                <div class="card" id="guests">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user-friends"></i> 4️⃣ التعامل مع الضيوف</h2>
+                        <span class="etiquette-badge">احترافي</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="tabs">
+                            <div class="tab active" data-tab="guests-tab1">آداب الاستقبال</div>
+                            <div class="tab" data-tab="guests-tab2">تقديم الخدمة</div>
+                            <div class="tab" data-tab="guests-tab3">التصرفات المحظورة</div>
+                        </div>
+                        
+                        <div class="tab-content active" id="guests-tab1">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th width="20%">البند</th>
+                                        <th width="25%">الوصف</th>
+                                        <th width="35%">أمثلة عملية</th>
+                                        <th width="10%">أيقونات</th>
+                                        <th width="10%">نجوم الجودة</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>الترحيب بلطف ولباقة</strong></td>
+                                        <td>استقبال الضيوف بابتسامة</td>
+                                        <td class="example-cell">قول: "أهلاً وسهلاً" عند دخول الضيوف، الابتسامة الهادئة</td>
+                                        <td class="icon-cell">🙂🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>عدم التدخل في شؤونهم</strong></td>
+                                        <td>احترام خصوصيتهم</td>
+                                        <td class="example-cell">عدم فتح الأبواب المغلقة أو التدخل في محادثاتهم أو التحديق في هواتفهم</td>
+                                        <td class="icon-cell">🧽🧤</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة أساسية">⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>تقديم المساعدة دون إزعاج</strong></td>
+                                        <td>خدمة احترافية وهادئة</td>
+                                        <td class="example-cell">تقديم المشروبات أو ترتيب الكراسي بهدوء، الانسحاب بلطف بعد تقديم الخدمة</td>
+                                        <td class="icon-cell">🙋‍♀️🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>التصرف بلباقة</strong></td>
+                                        <td>الانتباه للكلمات والسلوكيات</td>
+                                        <td class="example-cell">استخدام تعابير مهذبة مثل "من فضلك" و"شكرًا"، عدم التحدث بصوت عال</td>
+                                        <td class="icon-cell">🧤🧽</td>
+                                        <td class="stars-cell"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tab-content" id="guests-tab2">
+                            <div class="instructions">
+                                <h4><i class="fas fa-concierge-bell"></i> بروتوكول تقديم المشروبات للضيوف</h4>
+                                <ul>
+                                    <li><strong>الاستعداد المسبق:</strong> تأكدي من نظافة الأكواب والصحون قبل وصول الضيوف</li>
+                                    <li><strong>السؤال المهذب:</strong> "ماذا تحبون أن تشربوا؟" أو "هل تفضلون قهوة أم شاي؟"</li>
+                                    <li><strong>تقديم المشروب:</strong> حمل الصينية بيدين، وضع الكوب بحذر أمام الضيف</li>
+                                    <li><strong>الانسحاب بلطف:</strong> ابتعدي بعد تقديم الخدمة دون انتظار شكر أو إطراء</li>
+                                    <li><strong>التفقد الدوري:</strong> تفقدي احتياجات الضيوف كل 30-45 دقيقة بطريقة غير ملحوظة</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="instructions">
+                                <h4><i class="fas fa-people-arrows"></i> التعامل مع المواقف المختلفة</h4>
+                                <ul>
+                                    <li><strong>ضيوف غير متوقعين:</strong> حافظي على الهدوء، قدمي لهم المقاعد، وأخبري صاحبة المنزل بلطف</li>
+                                    <li><strong>ضيوف مع أطفال:</strong> قدمي لهم مقاعد آمنة، تجنبي لمس الأطفال دون إذن والديهم</li>
+                                    <li><strong>ضيوف كبار السن:</strong> ساعديهم بالجلوس والوقت برفق، تكلمي بوضوح وبطء إذا لزم الأمر</li>
+                                    <li><strong>ضيوف أجانب:</strong> استخدمي الإشارات البسيطة والابتسامة، تجنبي التحديق</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="guests-tab3">
+                            <div class="instructions">
+                                <h4><i class="fas fa-exclamation-triangle"></i> تصرفات ممنوعة تماماً مع الضيوف</h4>
+                                <ul>
+                                    <li>التحديق في الضيوف أو متابعة حركاتهم</li>
+                                    <li>الاستماع لمحادثاتهم الخاصة</li>
+                                    <li>تقديم آراء شخصية في نقاشاتهم</li>
+                                    <li>الجلوس مع الضيوف دون دعوة صريحة</li>
+                                    <li>استخدام هاتفك الشخصي أمام الضيوف</li>
+                                    <li>تقديم طعام أو شراب منتهي الصلاحية</li>
+                                    <li>الحديث بصوت عالٍ أو الضحك بصوت مرتفع</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="etiquette-tip">
+                                <i class="fas fa-crown tip-icon"></i>
+                                <strong>سر التميز:</strong> الخادم المتميز يكون حاضرًا عند الحاجة له، وغير مرئي عندما لا يكون مطلوبًا. هذه هي فلسفة الخدمة الفندقية الفاخرة.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comprehensive Checklist -->
+                <div class="card" id="checklist">
+                    <div class="card-header">
+                        <h2><i class="fas fa-clipboard-check"></i> 📋 قائمة التقييم الذاتي اليومي</h2>
+                        <span class="etiquette-badge">متابعة</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="section-highlight">
+                            <h3><i class="fas fa-star"></i> تقييم أداء اليوم</h3>
+                            <p>استخدمي هذه القائمة في نهاية كل يوم عمل لتقييم أدائك وتحديد مجالات التحسين.</p>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>النظافة الشخصية:</strong> الاستحمام، تنظيف الأسنان، ارتداء ملابس نظيفة</span>
+                            </label>
+                            <span class="importance-level high-importance">عالي</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>التواصل المهذب:</strong> استخدام "من فضلك" و"شكرًا"، نبرة صوت هادئة</span>
+                            </label>
+                            <span class="importance-level high-importance">عالي</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>احترام الخصوصية:</strong> عدم فتح الأبواب المغلقة، عدم التدخل في الشؤون الشخصية</span>
+                            </label>
+                            <span class="importance-level high-importance">عالي</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>الالتزام بالمواعيد:</strong> بدء العمل في الوقت المحدد، إنهاء المهام في وقتها</span>
+                            </label>
+                            <span class="importance-level medium-importance">متوسط</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>النظافة العامة:</strong> تنظيف المناطق المكلفة بها، التخلص من القمامة</span>
+                            </label>
+                            <span class="importance-level medium-importance">متوسط</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>التعامل مع الأطفال:</strong> اللطف والرفق، استخدام كلمات تشجيعية</span>
+                            </label>
+                            <span class="importance-level medium-importance">متوسط</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>التعامل مع الضيوف:</strong> الترحيب المهذب، تقديم الخدمة بهدوء</span>
+                            </label>
+                            <span class="importance-level medium-importance">متوسط</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>استخدام الهاتف:</strong> فقط في أوقات الاستراحة، عدم استخدامه أمام الأسرة</span>
+                            </label>
+                            <span class="importance-level low-importance">منخفض</span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>المبادرة الإيجابية:</strong> ترتيب إضافي، مساعدة غير مطلوبة بلطف</span>
+                            </label>
+                            <span class="stars"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></span>
+                        </div>
+                        
+                        <div class="checklist-item">
+                            <label>
+                                <input type="checkbox" class="daily-check">
+                                <span><strong>التعلم والتطوير:</strong> تعلم طريقة جديدة للتنظيف أو الترتيب</span>
+                            </label>
+                            <span class="stars"><span class="stars" title="مهمة عالية الجودة">⭐⭐</span></span>
+                        </div>
+                        
+                        <div class="progress-bar" style="margin-top: 20px;">
+                            <div class="progress" id="etiquette-progress" style="width: 0%"></div>
+                        </div>
+                        <div class="stat" style="margin-top: 10px;">
+                            <span>نسبة الإنجاز اليومي:</span>
+                            <span id="etiquette-score">0%</span>
+                        </div>
+                        
+                        <div class="etiquette-tip" style="margin-top: 20px;">
+                            <i class="fas fa-chart-line tip-icon"></i>
+                            <strong>تتبع التقدم:</strong> حاولي تحقيق نسبة 80% على الأقل يوميًا. النسبة 90-100% تميزك كعاملة منزلية محترفة بمعايير فندقية.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="stats-card">
+                    <h3><i class="fas fa-chart-pie"></i> إحصائيات الآداب اليومية</h3>
+                    <div class="stat">
+                        <span>نقاط الآداب اليوم:</span>
+                        <span id="etiquette-points">0/100</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="points-progress" style="width: 0%"></div>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>أعلى نقاط هذا الأسبوع:</span>
+                        <span id="weekly-high">85</span>
+                    </div>
+                    
+                    <div class="stat">
+                        <span>أهمية المهام المتبقية:</span>
+                        <span id="remaining-importance">عالية</span>
+                    </div>
+                    
+                    <button class="btn btn-print" onclick="window.print()">
+                        <i class="fas fa-print"></i> طباعة الدليل
+                    </button>
+                </div>
+                
+                <div class="stats-card">
+                    <h3><i class="fas fa-medal"></i> مستويات الجودة</h3>
+                    <div class="instructions">
+                        <p><strong>⭐ مهمة أساسية:</strong></p>
+                        <ul>
+                            <li>ضرورية للعمل اليومي</li>
+                            <li>تؤثر مباشرة على الرضا الأساسي</li>
+                            <li>عدم تنفيذها يعتبر تقصيراً</li>
+                        </ul>
+                        
+                        <p><strong>⭐⭐ مهمة عالية الجودة:</strong></p>
+                        <ul>
+                            <li>تميز العمل الاحترافي</li>
+                            <li>تزيد من مستوى الرضا</li>
+                            <li>تحول العمل من جيد إلى ممتاز</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3><i class="fas fa-award"></i> جوائز التميز الأسبوعية</h3>
+                    <div class="instructions">
+                        <p><strong>🏅 جائزة النظافة الشخصية:</strong> للالتزام اليومي بالنظافة</p>
+                        <p><strong>🏅 جائزة اللباقة:</strong> لأفضل تواصل مع الأسرة والضيوف</p>
+                        <p><strong>🏅 جائزة المبادرة:</strong> لأفضل فكرة تحسين أو ترتيب</p>
+                        <p><strong>🏅 جائزة الالتزام:</strong> للالتزام بالمواعيد والمهام</p>
+                        
+                        <div class="etiquette-tip" style="margin-top: 10px;">
+                            <i class="fas fa-gift tip-icon"></i>
+                            <strong>تلميح:</strong> احرصي على الفوز بجائزتين على الأقل أسبوعيًا لتطوير مسارك المهني.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> تحذيرات السلامة</h3>
+                    <div class="instructions">
+                        <ul>
+                            <li>ارتداء القفازات عند استخدام المنظفات 🧤</li>
+                            <li>عدم خلط المواد الكيميائية ⚠️</li>
+                            <li>تهوية المكان جيداً أثناء التنظيف 🌬️</li>
+                            <li>الحذر عند التعامل مع الأجهزة الكهربائية ⚡</li>
+                            <li>طلب المساعدة عند حمل الأشياء الثقيلة 💪</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>دليل آداب وقوانين العاملة المنزلية - النسخة الفندقية | معايير 7 نجوم ⭐⭐⭐⭐⭐⭐⭐</p>
+            <p>© 2023 - جميع الحقوق محفوظة | تصميم للمساعدة في التطوير المهني للعاملات المنزليات</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                const parent = this.closest('.card-body');
+                
+                // Remove active class from all tabs in this card
+                parent.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                parent.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                parent.querySelector(`#${tabId}`).classList.add('active');
+            });
+        });
+        
+        // Checklist functionality
+        document.querySelectorAll('.daily-check').forEach(checkbox => {
+            checkbox.addEventListener('change', updateEtiquetteStats);
+        });
+        
+        function updateEtiquetteStats() {
+            const checkboxes = document.querySelectorAll('.daily-check');
+            const checked = document.querySelectorAll('.daily-check:checked');
+            
+            const completed = checked.length;
+            const total = checkboxes.length;
+            
+            // Calculate percentage
+            const percentage = Math.round((completed / total) * 100);
+            
+            // Update progress bars and scores
+            document.getElementById('etiquette-progress').style.width = `${percentage}%`;
+            document.getElementById('etiquette-score').textContent = `${percentage}%`;
+            
+            // Calculate points (each checkbox gives 10 points)
+            const points = completed * 10;
+            document.getElementById('etiquette-points').textContent = `${points}/100`;
+            document.getElementById('points-progress').style.width = `${points}%`;
+            
+            // Determine remaining task importance
+            const remainingHigh = document.querySelectorAll('.daily-check:not(:checked) + span + .high-importance').length;
+            const remainingMedium = document.querySelectorAll('.daily-check:not(:checked) + span + .medium-importance').length;
+            
+            let importanceText = "منخفضة";
+            if (remainingHigh > 0) {
+                importanceText = "عالية";
+            } else if (remainingMedium > 0) {
+                importanceText = "متوسطة";
+            }
+            
+            document.getElementById('remaining-importance').textContent = importanceText;
+            
+            // Update weekly high score (simulated)
+            const weeklyHighElement = document.getElementById('weekly-high');
+            const currentHigh = parseInt(weeklyHighElement.textContent);
+            if (points > currentHigh) {
+                weeklyHighElement.textContent = points;
+            }
+            
+            // Add visual feedback for high scores
+            if (percentage >= 90) {
+                document.getElementById('etiquette-progress').style.backgroundColor = '#5cb85c'; // Green
+            } else if (percentage >= 70) {
+                document.getElementById('etiquette-progress').style.backgroundColor = '#f0ad4e'; // Orange
+            } else {
+                document.getElementById('etiquette-progress').style.backgroundColor = '#d9534f'; // Red
+            }
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Tooltip functionality for stars
+        document.querySelectorAll('.stars[title]').forEach(starElement => {
+            starElement.addEventListener('mouseenter', function() {
+                // Tooltip is shown via CSS
+            });
+        });
+        
+        // Simulate some completed tasks for demo
+        window.addEventListener('load', function() {
+            // Check some checkboxes for demo purposes
+            const demoCheckboxes = document.querySelectorAll('.daily-check');
+            if(demoCheckboxes.length > 0) {
+                // Check first 7 boxes for demo (70% completion)
+                for (let i = 0; i < 7; i++) {
+                    if (demoCheckboxes[i]) {
+                        demoCheckboxes[i].checked = true;
+                    }
+                }
+                updateEtiquetteStats();
+            }
+            
+            // Set a random weekly high score for demo
+            document.getElementById('weekly-high').textContent = Math.floor(Math.random() * 30) + 70;
+        });
+    </script>
+</body>
+</html>
